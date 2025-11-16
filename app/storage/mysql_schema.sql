@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS securechat CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE securechat;
+CREATE TABLE IF NOT EXISTS users (
+  email VARCHAR(255) NOT NULL,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  salt VARBINARY(16) NOT NULL,
+  pwd_hash CHAR(64) NOT NULL,
+  PRIMARY KEY (email)
+);
